@@ -1,0 +1,38 @@
+import mongoose from "mongoose";
+
+
+const stringTypeSchemaNoUniqueRequire = {
+    type: String,
+    require: true,
+
+}
+
+
+const numberTypeSchemaNoUniqueRequire = {
+    type: Number,
+    require: true
+}
+
+
+const stringTypeSchemaUniqueRequire = {
+    type: String,
+    require: true,
+    unique: true
+}
+
+const usersSchema = mongoose.Schema({
+
+    firstName: stringTypeSchemaNoUniqueRequire,
+    lastName: stringTypeSchemaNoUniqueRequire,
+    email: stringTypeSchemaUniqueRequire,
+    age: numberTypeSchemaNoUniqueRequire,
+    password: stringTypeSchemaNoUniqueRequire,
+    rol: {
+        type: String,
+        default: "user"
+        }
+})
+
+const userModel = new mongoose.model(process.env.userCollName, usersSchema)
+
+export default userModel
