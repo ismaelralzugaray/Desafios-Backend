@@ -1,0 +1,254 @@
+
+> Dejo en la base de datos 40 productos de la empresa en la que trabajo, que utilice para el proyecto final del curso de react.
+
+
+
+
+
+                                                                    -------PRODUCTS-------
+
+
+
+            //OBTENER PRODUCTOS  
+
+*Te dejo querys de ejemplo para que solo copies y pegues, ?limit=2&page=1&sort=desc&query={"category": }
+
+*Dejo el valor de category vacio para que puedas poner la categoria que quieras, si vas a filtrar por status usar {"status":true/false}*
+
+>> http://localhost:9090/api/products/?limit=2&page=1&sort=desc&query={"category": }
+
+
+
+                                    -------------------------------------------------------------------------------------
+
+            //OBTENER PRODUCTOS POR ID
+
+*Dejo un id como ejemplo*
+
+>> http://localhost:9090/api/products/64454c40e236bab8cea35d8a
+
+
+
+                                    -------------------------------------------------------------------------------------
+
+            //AGREGAR PRODUCTO
+
+*Dejo una plantilla para que solo copies y pegues en el body* :)
+
+{
+    "title": producto prueba 41,
+    "description": "producto prueba",
+    "code": 41,
+    "price": 300,
+    "status": true,
+    "stock": 3,
+    "category": "pruebas"
+}
+
+>> http://localhost:9090/api/products
+
+
+
+                                    -------------------------------------------------------------------------------------
+
+            //MODIFICAR PRODUCTO 
+
+*Dejo una plantilla para que solo copies y pegues en el body*
+
+{
+    "title": "Producto modificado",
+    "description": "Producto modificado 1",
+    "code": "41",
+    "price": 100000,
+    "status": false,
+    "stock": 80,
+    "category": "pruebas"
+}
+
+>> http://localhost:9090/api/products/64454c40e236bab8cea35d8a
+
+
+
+                                    -------------------------------------------------------------------------------------
+
+            //ELIMINAR PRODUCTO
+
+>> http://localhost:9090/api/products/64454c40e236bab8cea35d8a
+
+
+                                                                    -------CARTS-------
+
+
+            //CREAR CARRITO
+
+>> http://localhost:9090/api/carts/
+
+
+
+                                    -------------------------------------------------------------------------------------
+
+
+
+            //OBTENER PRODUCTOS DE "X" CARRITO
+
+*Dejo un carrito creado con un solo producto adentro*
+
+>> http://localhost:9090/api/carts/644870c98cd0c90ec6c389f1
+
+
+
+                                    -------------------------------------------------------------------------------------
+
+
+
+            //AGREGAR UN PRODUCTO A X CARRITO
+
+>> http://localhost:9090/api/carts/644870c98cd0c90ec6c389f1/products/64454c40e236bab8cea35d8a
+
+
+
+                                    -------------------------------------------------------------------------------------
+
+
+            //AGREGAR ARRAY CON VARIOS PRODUCTOS A X CARRITO
+
+*Te dejo un ejemplo para que copies y pegues en el body*
+
+[
+    {
+    "product": "64454c40e236bab8cea35d98",
+    "quantity": 70
+    },
+    {
+    "product": "64454c40e236bab8cea35d97",
+    "quantity": 90
+    }
+]
+
+>> http://localhost:9090/api/carts/644870c98cd0c90ec6c389f1
+
+
+
+                                    -------------------------------------------------------------------------------------
+
+
+
+            //MODIFICAR SOLO CANTIDAD DE UN PRODUCTO EN EL CARRITO
+
+*Te dejo un ejemplo para que solo copies y pegues en el body*
+
+{"quantity": 100}
+
+>> http://localhost:9090/api/carts/644870c98cd0c90ec6c389f1/products/64454c40e236bab8cea35d8a
+
+
+
+                                    -------------------------------------------------------------------------------------
+
+
+
+            //ELIMINAR UN PRODUCTO DEL CARRITO
+
+>> http://localhost:9090/api/carts/644870c98cd0c90ec6c389f1/products/64454c40e236bab8cea35d8a
+
+
+
+                                    -------------------------------------------------------------------------------------
+
+
+
+            //ELIMINAR TODOS LOS PRODUCTOS DEL CARRITO
+
+>> http://localhost:9090/api/carts/644870c98cd0c90ec6c389f1
+
+
+
+
+                                                                    -------USERS-------
+
+
+
+            //REGISTRARSE
+
+>> http://localhost:9090/users/register
+
+
+                                    -------------------------------------------------------------------------------------
+
+
+
+            //LOGEARSE
+
+>> http://localhost:9090/users/login
+
+
+
+
+VIEWS:
+
+            //LISTADO DE TODOS LOS PRODUCTOS
+
+**Al mostrar el producto modifique el endpoint que obtiene productos segun un id para que renderizara una vista en vez de que enviara un .send()
+de todas formas deje comentada la opcion con el .send() por si queres utilizar esa.
+
+
+*Te dejo querys de ejemplo para que solo copies y pegues, ?limit=2&page=1&sort=desc&query={"category": }
+
+*Dejo el valor de category vacio para que puedas poner la categoria que quieras, si vas a filtrar por status usar {"status":true/false}*
+
+>> http://localhost:9090/products
+
+
+
+                                    -------------------------------------------------------------------------------------
+
+
+
+            //LISTADO DE LOS PRODUCTOS DE "X" CARRITO
+
+>> http://localhost:9090/carts/644870c98cd0c90ec6c389f1
+
+
+
+                                    -------------------------------------------------------------------------------------
+
+
+
+            //LISTADO EN TIEMPO REAL DE PRODUCTOS (SE PUEDEN AÑADIR Y ELIMINAR PRODUCTOS)
+
+>> http://localhost:9090/realtimeproducts
+
+
+                                    -------------------------------------------------------------------------------------
+
+
+
+            //CHAT CON SOCKET.IO
+
+>> http://localhost:9090/chat
+
+
+                                    -------------------------------------------------------------------------------------
+
+
+
+            //LOGOUT
+
+** Este endpoint entra en accion cuando hacemos click en el boton logout de /products. Aca se hace el session.destroy y se vuelve
+a hacer un redirect al endpoint /users/login
+
+>> http://localhost:9090/logout
+
+
+
+
+
+
+
+
+
+
+
+
+
+
